@@ -1,18 +1,14 @@
 import React, { useState } from 'react';
 
 import { SearchIcon } from '../../assets'
-import UsersList from '../../components/UsersList';
+import UserResult from '../../components/UserResult';
 import { COLORS } from '../../styles';
+import api from '../../api'
 import * as S from './styles';
-
-const users = [
-  { id: 1, name: 'diegochagas' },
-  { id: 2, name: 'diegoeg3' },
-  { id: 3, name: 'maykbrito' }
-]
 
 function Search() {
   const [searchField, setSearchField] = useState('')
+  const [userData, setUserData] = useState({})
 
   const handleSearchField = event => {
     setSearchField(event.target.value)
@@ -22,11 +18,19 @@ function Search() {
     return searchField.length === 0
   }
 
+  const handleSearchUser = async event => {
+    event.preventDefault()
+    
+    const { data } = await api.get(`/${searchField}`)
+
+    setUserData(data)
+  }
+
   return (
     <S.Container>
       <S.Title>Search users</S.Title>
 
-      <S.SearchField>
+      <S.SearchField onSubmit={handleSearchUser}>
         <S.SearchInput
           type="text"
           placeholder="type username"
@@ -39,7 +43,7 @@ function Search() {
         </S.SearchButton>
       </S.SearchField>
 
-      <UsersList users={users} />
+      <UserResult user={userData} />
     </S.Container>
   );
 }

@@ -1,67 +1,65 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 
+import api from '../../api';
+import Table from '../../components/Table';
 import * as S from './styles';
 
-const repositories = [
-  { name: 'graphql-react-event-booking', description: 'Build a Project with GraphQL, Node, MongoDB and React.js' },
-  { name: 'blog', description: 'Web app that shows a list of posts.' },
-  { name: 'weather-api', description: 'Test with React and Redux using the Weather Api to show a list of city and its climes.' }
-]
-
-
 function User() {
-  const [pagination, setPagination] = useState(1)
+  const [user, setUser] = useState({})
+  const [repositories, setRepositories] = useState([])
+  const [tablePage, setTablePage] = useState(1)
+  const { login } = useParams()
+  const columns = ['name', 'description']
 
-  const handlerPagination = page => setPagination(page)
+  useEffect(() => {
+    async function getUser() {
+      const { data } = await api.get(`/${login}`)
+
+      setUser(data)
+    }
+
+    getUser()
+  }, [login])
+
+  useEffect(() => {
+    async function getRepositories() {
+
+      const { data } = await api.get(`/${user.login}/repos?page=${tablePage}&per_page=10`)
+
+      setRepositories(data)
+    }
+
+    if (user.login) getRepositories()
+  }, [tablePage, user.login])
+
+  const changeTextToSingleOrPlural = (startingText, amount) => {
+    return `${startingText}${amount === 1 ? 'y' : 'ies'}`
+  }
 
   return (
     <S.Container>
       <S.Title>User details</S.Title>
 
       <S.Profile>
-        <S.ProfilePicture src="https://github.com/diegochagas.png" />
+        <S.ProfilePicture src={user.avatar_url} />
 
-        <S.Name>Diego Chagas</S.Name>
+        <S.Name>{user.name}</S.Name>
 
-        <S.Total>43 repositories</S.Total>
+        <S.Total>
+          {user.public_repos} {changeTextToSingleOrPlural('repositor', user.public_repos)}
+        </S.Total>
       </S.Profile>
 
-      <S.Table>
-        <thead>
-          <tr>
-            <S.TableCellHeader>Name</S.TableCellHeader>
-
-            <S.TableCellHeader>Description</S.TableCellHeader>
-          </tr>
-        </thead>
-
-        <tbody>
-          {repositories.map(repo => (
-            <tr>
-              <S.TableCell>{repo.name}</S.TableCell>
-
-              <S.TableCell>{repo.description}</S.TableCell>
-            </tr>
-          ))}
-        </tbody>
-        <tfoot>
-          <tr>
-            <S.Pagination colSpan={2}>
-              <S.PagingationLabel>Previous</S.PagingationLabel>
-              
-              <S.PaginationNumbers>
-                {[1, 2, 3].map(page => (
-                  <S.PaginationNumber className={page === pagination && 'active'} onClick={() => handlerPagination(page)}>
-                    {page}
-                  </S.PaginationNumber>
-                ))}
-              </S.PaginationNumbers>
-
-              <S.PagingationLabel>Next</S.PagingationLabel>
-            </S.Pagination>
-          </tr>
-        </tfoot>
-      </S.Table>
+      {repositories.length > 0 && (
+        <Table
+          columns={columns}
+          rows={repositories}
+          totalRows={user.public_repos}
+          actualPage={tablePage}
+          setActualPage={setTablePage}
+        />
+      )}
       
       <footer>
         <S.BackButton to="/search">Search another user</S.BackButton>

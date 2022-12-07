@@ -12,6 +12,10 @@ export const Title = styled.h2`
   margin-bottom: 1rem;
 `
 
+export const EmptyUsers = styled.p`
+  text-align: center;
+`
+
 export const ListItems = styled.ul`
   width: 100%;
   display: flex;

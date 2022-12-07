@@ -17,7 +17,7 @@ function App() {
           <Route path="/" element={<Navigate replace to="/search" />} />
 
           <Route path="/search" element={<Search />} />
-          <Route path="/user/:id" element={<User />} />
+          <Route path="/user/:login" element={<User />} />
 
           <Route path="*" element={<Navigate replace to="/search" />} />
         </Routes>

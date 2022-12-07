@@ -13,7 +13,7 @@ export const Title = styled.h1`
   text-transform: capitalize;
 `
 
-export const SearchField = styled.div`
+export const SearchField = styled.form`
   display: flex;
   align-items: center;
   margin: 3rem 0;

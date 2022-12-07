@@ -32,50 +32,10 @@ export const ProfilePicture = styled.img`
   outline: 2px solid ${COLORS.GREEN_500};
 `
 
-export const Name = styled.p``
+export const Name = styled.p`
+`
 
 export const Total = styled.h3``
-
-export const Table = styled.table`
-`
-
-export const TableCellHeader = styled.th`
-border-top: 1px solid ${COLORS.GRAY_600};
-padding: 1rem;
-`
-
-export const TableCell = styled.td`
-  padding: 1rem;
-  border-top: 1px solid ${COLORS.GRAY_600};
-`
-
-export const Pagination = styled.td`
-  text-align: end;
-  border-top: 1px solid ${COLORS.GRAY_600};
-`
-
-export const PagingationLabel = styled.span`
-  padding: .5rem;
-  
-  &:hover {
-    background-color: ${COLORS.GRAY_600};
-  }
-`
-
-export const PaginationNumbers = styled.div`
-  display: inline-block;
-  margin: 0 .5rem;
-`
-
-export const PaginationNumber = styled.span`
-  display: inline-block;
-  padding: .5rem;
-  cursor: pointer;
-
-  &.active {
-    background-color: ${COLORS.GRAY_600};
-  }
-`
 
 export const BackButton = styled(NavLink)`
   background: ${COLORS.GREEN_500};
