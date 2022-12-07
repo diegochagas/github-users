@@ -29,6 +29,7 @@ export const SearchInput = styled.input`
   padding: 1rem;
   border-radius: 8px 0 0 8px;
   color: ${COLORS.GRAY_100};
+  outline: none;
 `
 
 export const SearchButton = styled.button`

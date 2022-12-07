@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { SearchIcon } from '../../assets'
+import { SearchIcon } from '../../components/Icons'
 import UserResult from '../../components/UserResult';
 import { COLORS } from '../../styles';
 import api from '../../api'
@@ -38,7 +38,7 @@ function Search() {
           onChange={handleSearchField}
         />
         
-        <S.SearchButton>
+        <S.SearchButton title="Search username">
           <SearchIcon width={25} color={COLORS.WHITE} disabled={searchFieldIsEmpty} />
         </S.SearchButton>
       </S.SearchField>

@@ -25,11 +25,10 @@ export const Title = styled.h1`
 `
 
 export const ProfilePicture = styled.img`
-  width: calc(3rem + 12px);
-  height: calc(3rem + 12px);
+  width: 4rem;
+  height: 4rem;
   border-radius: 8px;
-  border: 4px solid ${COLORS.GRAY_800};
-  outline: 2px solid ${COLORS.GREEN_500};
+  border: 2px solid ${COLORS.GREEN_500};
 `
 
 export const Name = styled.p`

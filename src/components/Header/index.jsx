@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { LogoIcon } from '../../assets'
+import { LogoIcon } from '../Icons'
 import { COLORS } from '../../styles';
 import * as S from './styles';
 

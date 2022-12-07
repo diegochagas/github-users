@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
+import { COLORS } from '../../styles';
+import { ArrowBackIcon, ArrowFowardIcon } from '../Icons';
 
 import * as S from './styles';
 
 function Table({ columns, rows, totalRows, actualPage, setActualPage }) {
   const [pagesList, setPagesList] = useState([1])
+  const totalPages = Math.ceil(totalRows / 10)
 
   useEffect(() => {
     if (totalRows > 1) {
-      const totalPages = Math.ceil(totalRows / 10)
-      
       const numbers = []
       
       for (let i = 1; i <= totalPages; i++) {
@@ -17,9 +18,17 @@ function Table({ columns, rows, totalRows, actualPage, setActualPage }) {
       
       setPagesList(numbers)
     }
-  }, [totalRows])
+  }, [totalPages, totalRows])
 
   const handlerPagination = page => setActualPage(page)
+  
+  const handlePreviousPagination = () => setActualPage(prevState => prevState - 1)
+
+  const handleNextPagination = () => setActualPage(prevState => prevState + 1)
+
+  const isFirstPage = () => actualPage === 1
+
+  const isLastPage = () => actualPage === totalPages
 
   return (
     <S.Container>
@@ -43,7 +52,13 @@ function Table({ columns, rows, totalRows, actualPage, setActualPage }) {
       <tfoot>
         <tr>
           <S.TableCellRight colSpan={2}>
-            <S.PagingationLabel>Previous</S.PagingationLabel>
+            <S.PagingationButton
+              title="Move pagination back"
+              onClick={handlePreviousPagination}
+              disabled={isFirstPage()}
+            >
+              <ArrowBackIcon width={10} color={COLORS.GRAY_300} />
+            </S.PagingationButton>
             
             <S.PaginationNumbers>
               {pagesList.map(page => (
@@ -57,7 +72,13 @@ function Table({ columns, rows, totalRows, actualPage, setActualPage }) {
               ))}
             </S.PaginationNumbers>
 
-            <S.PagingationLabel>Next</S.PagingationLabel>
+            <S.PagingationButton
+              title="Move pagination foward"
+              onClick={handleNextPagination}
+              disabled={isLastPage()}
+            >
+              <ArrowFowardIcon width={10} color={COLORS.GRAY_300} />
+            </S.PagingationButton>
           </S.TableCellRight>
         </tr>
       </tfoot>

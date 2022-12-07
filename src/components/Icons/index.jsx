@@ -15,3 +15,19 @@ export const SearchIcon = ({ color, width }) => {
     </svg>    
   )
 }
+
+export const ArrowBackIcon = ({ color, width }) => {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width={width} fill={color} viewBox="0 0 346 511.48">
+      <path d="M346 101.8 201.49 255.74 346 409.68l-105.94 101.8L0 255.74 240.06 0z"/>
+    </svg>
+  )
+}
+
+export const ArrowFowardIcon = ({ color, width }) => {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width={width} fill={color} viewBox="0 0 346 511.48">
+      <path d="m0 409.68 144.51-153.95L0 101.79 105.93 0 346 255.73 105.93 511.48z"/>
+    </svg>
+  )
+}
