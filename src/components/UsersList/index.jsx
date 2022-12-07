@@ -11,7 +11,7 @@ function UsersList({ users }) {
         <S.ListItems>
           {users.map(user => (
             <S.ListItem key={user.id}>
-              <S.Link to="">
+              <S.Link to={`/user/${user.id}`}>
                 <S.Avatar src="https://github.com/maykbrito.png" />
 
                 <S.Name>{user.name}</S.Name>

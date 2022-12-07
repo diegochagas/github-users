@@ -3,14 +3,13 @@ import { NavLink } from 'react-router-dom'
 import { COLORS } from '../../styles';
 
 export const Container = styled.div`
-  margin-top: 3rem;
   width: 100%;
 `;
 
 export const Title = styled.h2`
   text-align: center;
   text-transform: capitalize;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 `
 
 export const ListItems = styled.ul`

@@ -8,7 +8,7 @@ export const Container = styled.div`
   flex-direction: column;
 `
 
-export const Title = styled.h2`
+export const Title = styled.h1`
   text-align: center;
   text-transform: capitalize;
 `
@@ -16,7 +16,7 @@ export const Title = styled.h2`
 export const SearchField = styled.div`
   display: flex;
   align-items: center;
-  margin-top: 1rem;
+  margin: 3rem 0;
 `
 
 export const SearchInput = styled.input`

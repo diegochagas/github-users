@@ -1,6 +1,4 @@
-import styled from 'styled-components';
-import { NavLink } from 'react-router-dom'
-
+import styled from 'styled-components'
 import { COLORS } from '../../styles';
 
 export const Container = styled.header`
@@ -10,10 +8,8 @@ export const Container = styled.header`
 
 export const Content = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   padding: 1.25rem 0;
-  max-width: 48rem;
-  margin: 0 auto;
 `
 
 export const Logo = styled.h1`
@@ -33,23 +29,4 @@ export const LogoImage = styled.img`
 
 export const LogoText = styled.span`
   display: block;
-`
-
-export const NavLinks = styled.ul`
-  display: flex;
-  margin: 0;
-  padding: 0;
-  align-items: center;
-  height: 100%;
-`
-
-export const Link = styled(NavLink)`
-  text-decoration: none;
-  font-weight: bold;
-  color: ${COLORS.WHITE};
-  padding: 1.5rem;
-
-  &:hover, &:focus {
-    background-color: ${COLORS.GRAY_600};
-  }
 `

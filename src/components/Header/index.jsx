@@ -13,16 +13,6 @@ function Header() {
 
           <S.LogoText>Github users</S.LogoText>
         </S.Logo>
-        <nav>
-          <S.NavLinks>
-            <li>
-              <S.Link to="/search">Search</S.Link>
-            </li>
-            <li>
-              <S.Link to="/user">User</S.Link>
-            </li>
-          </S.NavLinks>
-        </nav>
       </S.Content>
     </S.Container>
   )
