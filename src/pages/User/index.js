@@ -14,7 +14,7 @@ function User() {
 
   useEffect(() => {
     async function getUser() {
-      const { data } = await api.get(`/${login}`)
+      const data = await api.get(`/${login}`)
 
       setUser(data)
     }
@@ -25,7 +25,7 @@ function User() {
   useEffect(() => {
     async function getRepositories() {
 
-      const { data } = await api.get(`/${user.login}/repos?page=${tablePage}&per_page=10`)
+      const data = await api.get(`/${user.login}/repos?page=${tablePage}&per_page=10`)
 
       setRepositories(data)
     }

@@ -21,7 +21,7 @@ function Search() {
   const handleSearchUser = async event => {
     event.preventDefault()
     
-    const { data } = await api.get(`/${searchField}`)
+    const data = await api.get(`/${searchField}`)
 
     setUserData(data)
   }

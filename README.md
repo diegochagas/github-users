@@ -1,6 +1,6 @@
 # Github Users
 
-Project build with React.js, Styled-components, Axios and Github API to show Github users and their repositories.
+Project build with React.js, Styled-components and Github API to show Github users and their repositories.
 
 ## To run locally
 
