@@ -6,7 +6,7 @@ import * as S from './styles';
 
 function Header() {
   return (
-    <S.Container>
+    <S.Container data-testid="header">
       <S.Content>
         <S.Logo>
           <LogoIcon color={COLORS.GREEN_500} width={32} />

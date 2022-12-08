@@ -5,7 +5,7 @@ import Search from './pages/Search';
 import User from './pages/User';
 import Header from "./components/Header";
 
-import GlobalStyle from './styles/global.js'
+import GlobalStyle from './styles/global'
 
 function App() {
   return (
