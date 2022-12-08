@@ -31,7 +31,7 @@ function Table({ columns, rows, totalRows, actualPage, setActualPage }) {
   const isLastPage = () => actualPage === totalPages
 
   return (
-    <S.Container>
+    <S.Container data-testid="table">
       <thead>
         <tr>
           {columns.map(column => <S.TableCellHeader key={column}>{column}</S.TableCellHeader>)}

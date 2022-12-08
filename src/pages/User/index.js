@@ -38,7 +38,7 @@ function User() {
   }
 
   return (
-    <S.Container>
+    <S.Container data-testid="user">
       <S.Title>User details</S.Title>
 
       <S.Profile>

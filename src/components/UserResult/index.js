@@ -1,10 +1,10 @@
-import React from 'react';
+import React from 'react'
 
 import * as S from './styles';
 
 function UserResult({ user }) {
   return (
-    <S.Container>
+    <S.Container data-testid="user-result">
       <S.Title>Users list</S.Title>
       
       {!user.login ? <S.EmptyUsers>No users found</S.EmptyUsers> : (

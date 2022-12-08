@@ -27,7 +27,7 @@ function Search() {
   }
 
   return (
-    <S.Container>
+    <S.Container data-testid="search">
       <S.Title>Search users</S.Title>
 
       <S.SearchField onSubmit={handleSearchUser}>
