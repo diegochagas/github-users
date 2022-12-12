@@ -1,11 +1,16 @@
 import { render, screen } from '@testing-library/react'
+import { HashRouter } from 'react-router-dom'
 
 import User from '.'
 
 test('should render User component', () => {
-  render(<User />)
+  render(
+    <HashRouter>
+      <User />
+    </HashRouter>
+  )
 
-  const userElement = screen.getByTestId('user')
+  const userElement = screen.getByTestId('user-details')
 
-  expect(userElement).toHaveTextContent('Details')
+  expect(userElement).toHaveTextContent('User details')
 })

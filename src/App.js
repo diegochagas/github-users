@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Navigate, Routes  } from 'react-router-dom';
+import { HashRouter, Route, Navigate, Routes  } from 'react-router-dom';
 
 import Search from './pages/Search';
 import User from './pages/User';
@@ -9,7 +9,7 @@ import GlobalStyle from './styles/global'
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Header />
 
       <main className="App">
@@ -24,7 +24,7 @@ function App() {
 
         <GlobalStyle />
       </main>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
